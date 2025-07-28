@@ -1,7 +1,7 @@
 from django.urls import path, register_converter, re_path
-from car_list.views import test1
+from car_list.views import show_cars_list
 
 
 urlpatterns = [
-    path('show/', test1)
+    path('show/', show_cars_list)
 ]
