@@ -15,6 +15,7 @@
         {% csrf_token %}
         <input type="hidden" name="car_id" value="{{ the_car.id }}">
         <input type="hidden" name="next" value="{{ request.build_absolute_uri }}">
+        <input type="text" name="quantity">
         <button type="submit"> Add to basket </button>
     </form>
 </body>

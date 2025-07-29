@@ -14,9 +14,9 @@ class CarBasketAdmin(admin.ModelAdmin):
     inlines = [CarBasketLineInline]
 
 
-@register(CarBasketLine)
-class CarBasketLineAdmin(admin.ModelAdmin):
-    list_display = ['basket', 'cars', 'quantity']
+# @register(CarBasketLine)
+# class CarBasketLineAdmin(admin.ModelAdmin):
+#     list_display = ['basket', 'cars', 'quantity']
 
 
 

@@ -33,13 +33,19 @@ def add_to_basket(request):
         car_basket.save()
 
     car_id = request.POST.get('car_id', None)  # e.g. 3
+    quantity = request.POST.get('quantity', 1)
+    try:
+        quantity = int(quantity)
+    except:
+        quantity = 1
+
     if car_id:
         try:
             car = Car.objects.get(id=car_id)
         except Car.DoesNotExist:
             raise Http404
         else:
-            car_basket.add(car)
+            car_basket.add(car, quantity)
 
     return response
 

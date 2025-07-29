@@ -14,13 +14,13 @@ class CarBasket(models.Model):
     def __str__(self):
         return f"{self.user}"
 
-    def add(self, car):
+    def add(self, car, qty=1):
         if self.lines.filter(cars=car).exists():
             car_line = self.lines.filter(cars=car).first()
-            car_line.quantity += 1
+            car_line.quantity += qty
             car_line.save()
         else:
-            car_line = self.lines.create(cars=car)  # CarBasketLine.objects.create(cars=car, basket=self)
+            car_line = self.lines.create(cars=car, quantity=qty)  # CarBasketLine.objects.create(cars=car, basket=self)
         return car_line
 
     create_time = models.DateTimeField(auto_now_add=True)
