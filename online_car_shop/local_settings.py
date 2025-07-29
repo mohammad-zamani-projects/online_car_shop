@@ -1,4 +1,6 @@
 
+# I know! it is local_setting! and must not push it on github! but now I need to push it on git!!!
+
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-co!7b=l_wojs%#cw3j$v99(h*i9n)mdy@9hj+unno8k39#(%0n'

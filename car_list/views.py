@@ -15,6 +15,5 @@ def show_cars_list(request):
 def show_car(request, car_id):
     the_car = get_object_or_404(Car, id=car_id)
     return render(request, 'car_list/show_car.html', {'the_car': the_car})
-    # return render(request, 'car_list/show_car.html')
 
 

@@ -11,6 +11,11 @@
         <img src="{{ the_car.image.url }}" alt="Car Image" width="320"> <br><br><br><br><br><br>
     </a>
 
-    <button type="submit"> Add to basket </button>
+    <form method="post" name="car_product" action="{% url 'add-to-basket' %}">
+        {% csrf_token %}
+        <input type="hidden" name="car_id" value="{{ the_car.id }}">
+        <input type="hidden" name="next" value="{{ request.build_absolute_uri }}">
+        <button type="submit"> Add to basket </button>
+    </form>
 </body>
 </html>
