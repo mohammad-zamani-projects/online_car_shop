@@ -6,6 +6,6 @@
 
 .idea/
 
-local_*.py
+#local_*.py
 
 *.pyc

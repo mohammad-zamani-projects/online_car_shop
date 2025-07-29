@@ -5,7 +5,12 @@
     <title>AllCars</title>
 </head>
 <body>
+    <h2> Here is list of all the cars: <br> </h2>
+
     {% for car in cars %}
-    <a> all the cars are Here: </a>
+        <a href="{% url 'car-show' car.id %}"> > {{ car.title }}</a><br>
+            <img src="{{ car.image.url }}" alt="Car Image" width="320"> <br><br><br><br><br><br>
+        </a>
+    {% endfor %}
 </body>
 </html>

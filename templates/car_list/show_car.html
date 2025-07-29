@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ the_car.title }}</title>
+</head>
+<body>
+    <br><a>The {{ the_car.title }} from {{ the_car.company }} company for the year {{ the_car.year_created }} <br>
+        "{{ the_car.caption }}" <br>
+        its color is {{ the_car.get_color_display }} and its image is: <br>
+        <img src="{{ the_car.image.url }}" alt="Car Image" width="320"> <br><br><br><br><br><br>
+    </a>
+
+    <button type="submit"> Add to basket </button>
+</body>
+</html>

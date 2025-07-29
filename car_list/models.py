@@ -49,7 +49,7 @@ class Car(models.Model):
     title = models.CharField(max_length=128, verbose_name='TITLE')
     year_created = models.IntegerField(default=2025)
     color = models.PositiveSmallIntegerField(choices=COLOR_TYPE_FIELD)
-    image = models.ImageField(blank=True, null=True, upload_to='car_list')
+    image = models.ImageField(blank=True, null=True, upload_to='car_list/')
     caption = models.TextField(blank=True, null=True)
     company = models.ForeignKey(Company, on_delete=models.CASCADE, related_name='company', default=timezone.now)
 
