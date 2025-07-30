@@ -11,7 +11,7 @@ class Company(models.Model):
         verbose_name_plural = 'Companies'
 
     def __str__(self):
-        return self.company_name
+        return f"{self.company_name}"
 
     create_time = models.DateTimeField(auto_now_add=True)
     modified_time = models.DateTimeField(auto_now=True)
@@ -28,7 +28,7 @@ class Car(models.Model):
         verbose_name_plural = "Cars"
 
     def __str__(self):
-        return self.title
+        return f"{self.title}"
 
     BLACK = 1
     WHITE = 2

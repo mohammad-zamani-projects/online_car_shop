@@ -27,7 +27,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'car_list.apps.CarListConfig',
-    'basket.apps.BasketConfig'
+    'basket.apps.BasketConfig',
+    'shipping.apps.ShippingConfig'
 ]
 
 MIDDLEWARE = [

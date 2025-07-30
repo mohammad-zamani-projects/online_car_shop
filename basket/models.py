@@ -27,6 +27,29 @@ class CarBasket(models.Model):
     modified_time = models.DateTimeField(auto_now=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='baskets', null=True, blank=True)
 
+    def validate_user(self, user):
+        if user.is_authenticated:
+            if self.user is not None and self.user != user:  # if user authenticated but the basket is Not for him!!!!
+                return False
+            if self.user in None:
+                self.user = user
+                self.save()
+
+        elif self.user is not None:
+            return False
+        return True
+
+    @classmethod
+    def get_basket(cls, basket_id):
+        if basket_id is None:
+            car_basket = cls.objects.create()
+        else:
+            try:
+                car_basket = cls.objects.get(id=basket_id)
+            except cls.DoesNotExist:
+                car_basket = None
+        return car_basket
+
 
 # _________________________________________model separator ____________________________________________
 
