@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Addresses list{% endblock %}
+
+
+{% block content %}
+{#    <ul>#}
+        {% for addr in queryset %}
+            <p>{{ addr.user }} - {{ addr.city }} - {{ addr.address }} - {{ addr.number }}</p>
+        {% endfor %}
+{#    </ul>#}
+    <br><button>
+        <a href="{% url 'address-create' %}">Back to the create page</a>
+    </button>
+{% endblock %}

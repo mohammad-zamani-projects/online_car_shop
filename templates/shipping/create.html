@@ -5,13 +5,17 @@
 
 
 {% block content %}
-    <h3>Add new shipping address</h3>
+    <br><h3>Add new shipping address</h3>
 
     <form method="POST" action="">
     {% csrf_token %}
     {{ form.as_p }}
         <button type="submit">Save Address</button>
     </form>
+
+    <br><br><button>
+        <a href={% url 'address-list' %}>Show addresses list</a>
+    </button>
 {% endblock %}
 
 
