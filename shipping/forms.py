@@ -12,7 +12,7 @@ class ShippingAddressForm(forms.ModelForm):
         model = ShippingAddress
         fields = ['city', 'zipcode', 'address', 'number']  # can use this instead ==>  exclude = ['user']
 
-    # # validate after jobs!
+    # todo: validate after jobs!
     # def clean_zipcode(self):
     #     zipcode = self.cleaned_data['zipcode']
     #     if len(zipcode) != 16:

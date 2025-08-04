@@ -5,9 +5,10 @@
 
 
 {% block content %}
+    <br><h2>Number of all addresses: {{ address_count }}</h2><br>
 {#    <ul>#}
         {% for addr in queryset %}
-            <p>{{ addr.user }} - {{ addr.city }} - {{ addr.address }} - {{ addr.number }}</p>
+            <p>{{ addr.user }} - {{ addr.city }} - {{ addr.address }} - pelak {{ addr.number }}</p>
         {% endfor %}
 {#    </ul>#}
     <br><button>
