@@ -28,7 +28,8 @@ INSTALLED_APPS = [
 
     'car_list.apps.CarListConfig',
     'basket.apps.BasketConfig',
-    'shipping.apps.ShippingConfig'
+    'shipping.apps.ShippingConfig',
+    'finance.apps.FinanceConfig',
 ]
 
 MIDDLEWARE = [
@@ -125,3 +126,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = '/admin/login/'
+
+# zarrinpal information
+ZARRINPAL = {
+    'gateway_request_url': 'https://www.zarinpal.com/pg/services/WebGate/wsdl',
+    'gateway_callback_url': 'http://127:0.0.1:8000/finance/verify',
+    'merchant_id': ZARRINPAL_MERCHANT_ID
+}

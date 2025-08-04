@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Payment result{% endblock %}
+
+
+
+
+{% block content %}
+
+    {% if is_paid %}
+        تبریک!!! پرداخت موفقیت آمیز بود...!
+    {% else %}
+        شت! پرداخت با خطا مواجه شد.
+    {% endif %}
+
+{% endblock %}
+
+
+
+
+

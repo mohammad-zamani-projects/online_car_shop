@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Charge wallet{% endblock %}
+
+
+
+{% block content %}
+
+    <h3>Charge wallet</h3>
+
+    <form method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <button type="submit">Charge</button>
+    </form>
+
+{% endblock %}

@@ -15,3 +15,6 @@ DATABASE_PASSWORD = 'online_car_shop_password'
 DATABASE_HOST = 'localhost'
 DATABASE_USER = 'online_car_shop_user'
 DATABASE_PORT = 5432
+
+
+ZARRINPAL_MERCHANT_ID = ''
