@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Purchase</title>
+</head>
+<body>
+
+    {% if purchase %}
+        Purchase number {{ purchase.id }} created<br>
+        Status: {{ purchase.get_status_display }}
+    {% else %}
+        Purchase not created
+    {% endif %}
+
+</body>
+</html>

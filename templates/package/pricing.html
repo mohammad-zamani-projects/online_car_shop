@@ -32,7 +32,8 @@
                         <li>{{ attr.title }}</li>
                     {% endfor %}
                   </ul>
-                  <button type="button" class="w-100 btn btn-lg btn-outline-primary">خرید اشتراک</button>
+{#                  <button type="button" class="w-100 btn btn-lg btn-outline-primary">خرید اشتراک</button>#}
+                    <a href="{% url 'create-purchase' package.id %}" type="button" class="w-100 btn btn-lg btn-outline-primary">خرید اشتراک</a>
                 </div>
               </div>
             </div>

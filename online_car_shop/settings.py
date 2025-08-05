@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'shipping.apps.ShippingConfig',
     'finance.apps.FinanceConfig',
     'package.apps.PackageConfig',
+    'purchase.apps.PurchaseConfig',
 ]
 
 MIDDLEWARE = [
