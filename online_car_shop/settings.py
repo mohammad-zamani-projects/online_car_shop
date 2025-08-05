@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'basket.apps.BasketConfig',
     'shipping.apps.ShippingConfig',
     'finance.apps.FinanceConfig',
+    'package.apps.PackageConfig',
 ]
 
 MIDDLEWARE = [
