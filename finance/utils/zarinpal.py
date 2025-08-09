@@ -21,17 +21,3 @@ def zpal_payment_checker(merchant_id, amount, authority):
     return is_paid, result.RefID
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
