@@ -6,7 +6,8 @@ from django.conf import settings
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 
-from finance.utils import zpal_request_handler, zpal_payment_checker
+from finance.utils.zarinpal import zpal_request_handler, zpal_payment_checker
+
 
 class Gateway(models.Model):
     """
@@ -28,8 +29,8 @@ class Gateway(models.Model):
     )
 
     title = models.CharField(max_length=100, verbose_name=_("gateway title"))
-    gateway_request_url = models.CharField(max_length=150, verbose_name=_("request url"))
-    gateway_verify_url = models.CharField(max_length=150, verbose_name=_("verify url"))
+    gateway_request_url = models.CharField(max_length=150, verbose_name=_("request url"), null=True, blank=True)
+    gateway_verify_url = models.CharField(max_length=150, verbose_name=_("verify url"), null=True, blank=True)
     gateway_code = models.CharField(max_length=12, verbose_name=_("gateway code"), choices=GATEWAY_FUNCTIONS)
     is_enable = models.BooleanField(_("is enable"), default=True)
     auth_data = models.TextField(verbose_name=_("auth_data"), null=True, blank=True)
@@ -86,11 +87,26 @@ class Payment(models.Model):
         super().__init__(*args, **kwargs)
         self._b_is_paid = self.is_paid
 
+    def get_handler_data(self):
+        return dict(
+            merchant_id=self.gateway.auth_data,
+            amount=self.amount,
+            detail=self.title,
+            user_email=self.user.email,
+            user_phone_number=getattr(self.user, 'phone_number', None),
+            callback='http://127:0.0.1:8000/finance/verify'
+        )
+
     @property
     def bank_page(self):
         handler = self.gateway.get_request_handler()
         if handler is not None:
-            return handler(self.gateway, self)
+            data = self.get_handler_data()
+            link, authority = handler(**data)
+            if authority is not None:
+                self.authority = authority
+                self.save()
+            return link
 
     @property
     def title(self):
@@ -102,13 +118,21 @@ class Payment(models.Model):
     def verify(self, data):
         handler = self.gateway.get_verify_handler()
         if not self.is_paid and handler is not None:
-            handler(self, data)
+            handler(**data)
         return self.is_paid
 
+    def get_gateway(self):
+        gateway = Gateway.objects.filter(is_enable=True).filter()
+        return gateway.gatewaye_code
 
-
-
-
+    def save_log(self, data, scope='Request handler', save=True):
+        generated_log = "[{}][{}] {}\n".format(timezone.now(), scope, data)
+        if self.payment_log != '':
+            self.payment_log += generated_log
+        else:
+            self.payment_log = generated_log
+        if save:
+            self.save()
 
 
 

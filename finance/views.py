@@ -1,6 +1,9 @@
 from django.conf import settings
+from django.http import Http404
 from django.shortcuts import render, redirect
 from django.views import View
+
+from finance.models import Payment, Gateway
 from finance.utils.zarinpal import zpal_request_handler, zpal_payment_checker
 
 from finance.forms import ChargeWalletForm
@@ -27,6 +30,7 @@ class ChargeWalletView(View):
             )
             if payment_link is not None:
                 print(authority)
+                print(payment_link)
                 return redirect(payment_link)
 
         return render(request, self.template_name, {'form': form})
@@ -37,13 +41,50 @@ class VerifyView(View):
 
     def get(self, request, *args, **kwargs):
         authority = request.GET.get('Authority')
-        is_paid, ref_id = zpal_payment_checker(
-            merchant_id=settings.ZARRINPAL['merchant_id'],
-            amount=10000,
-            authority=authority
-        )
-        return render(request, self.template_name, {'is_paid': is_paid, 'ref_if': ref_id})
+        try:
+            payment = Payment.objects.get(authority=authority)
+        except Payment.DoesNotExist:
+            raise Http404
+        data = dict(merchant_id=payment.gateway.auth_data, amount=payment.amount, authority=payment.authority)
+        payment.verify(data)
 
+        return render(request, self.template_name, {'payment': payment})
+
+
+class PaymentView(View):
+
+    def get(self, request, invoice_number, *args, **kwargs):
+        try:
+            payment = Payment.objects.get(invoice_number=invoice_number)
+        except Payment.DoesNotExist:
+            raise Http404
+
+        gateways = Gateway.objects.filter(is_enable=True)
+
+        return render(request, 'finance/payment_detail.html', {'payment': payment, 'gateways': gateways})
+
+
+class PaymentGatewayView(View):
+
+    def get(self, request, invoice_number, gateway_code, *args, **kwargs):
+        try:
+            payment = Payment.objects.get(invoice_number=invoice_number)
+        except Payment.DoesNotExist:
+            raise Http404
+
+        try:
+            gateway = Gateway.objects.get(gateway_code=gateway_code)
+        except Gateway.DoesNotExist:
+            raise Http404
+
+        payment.gateway = gateway
+        payment.save()
+        payment_link = payment.bank_page
+        if payment_link:
+            return redirect(payment.bank_page)
+
+        gateways = Gateway.objects.filter(is_enable=True)
+        return render(request, 'finance/payment_detail.html', {'payment': payment, 'gateways': gateways})
 
 
 

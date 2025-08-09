@@ -7,8 +7,11 @@
 <body>
 
     {% if purchase %}
+        <p>
         Purchase number {{ purchase.id }} created<br>
         Status: {{ purchase.get_status_display }}
+        </p>
+        <a href="{% url 'payment-link' purchase.payment.invoice_number %}">Pay with credit card</a>
     {% else %}
         Purchase not created
     {% endif %}
