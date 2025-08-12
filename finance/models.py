@@ -118,7 +118,8 @@ class Payment(models.Model):
     def verify(self, data):
         handler = self.gateway.get_verify_handler()
         if not self.is_paid and handler is not None:
-            handler(**data)
+            self.is_paid, _ = handler(**data)
+            self.save()  # post_save signal in purchase app calls after this save...
         return self.is_paid
 
     def get_gateway(self):

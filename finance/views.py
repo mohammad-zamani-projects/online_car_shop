@@ -42,7 +42,7 @@ class VerifyView(View):
     def get(self, request, *args, **kwargs):
         authority = request.GET.get('Authority')
         try:
-            payment = Payment.objects.get(authority=authority)
+            payment = Payment.objects.get(authority=authority)  # here, the post_init signal is calling
         except Payment.DoesNotExist:
             raise Http404
         data = dict(merchant_id=payment.gateway.auth_data, amount=payment.amount, authority=payment.authority)
