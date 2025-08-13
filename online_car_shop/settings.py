@@ -135,3 +135,18 @@ ZARRINPAL = {
     'gateway_callback_url': 'http://127:0.0.1:8000/finance/verify',
     'merchant_id': ZARRINPAL_MERCHANT_ID
 }
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.PyMemcacheCache',
+        'LOCATION': '127.0.0.1:11211',
+    }
+}
+
+
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.dummy.DummyCache',  # This is just for development! Deactivate caching!
+#     }
+# }
+
