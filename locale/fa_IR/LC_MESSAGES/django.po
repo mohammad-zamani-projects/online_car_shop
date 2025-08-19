@@ -1,0 +1,162 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-18 13:51+0330\n"
+"PO-Revision-Date: 2025-08-19 11:55+0330\n"
+"Last-Translator:   <mohammad_zamani_alluses@yahoo.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Translated-Using: django-rosetta 0.10.2\n"
+
+#: finance/models.py:24
+msgid "Saman"
+msgstr "سامان"
+
+#: finance/models.py:25
+msgid "Shaparak"
+msgstr "شاپرک"
+
+#: finance/models.py:26
+msgid "finotech"
+msgstr ""
+
+#: finance/models.py:27
+msgid "zarrinpal"
+msgstr "زرین پال"
+
+#: finance/models.py:28
+msgid "parsian"
+msgstr ""
+
+#: finance/models.py:31
+msgid "gateway title"
+msgstr ""
+
+#: finance/models.py:32
+msgid "request url"
+msgstr ""
+
+#: finance/models.py:33
+msgid "verify url"
+msgstr ""
+
+#: finance/models.py:34
+msgid "gateway code"
+msgstr "کد درگاه"
+
+#: finance/models.py:35
+msgid "is enable"
+msgstr "فعال بودن"
+
+#: finance/models.py:36
+msgid "auth_data"
+msgstr ""
+
+#: finance/models.py:39
+msgid "Gateway"
+msgstr "درگاه"
+
+#: finance/models.py:40
+msgid "Gateways"
+msgstr "درگاه ها"
+
+#: finance/models.py:71
+msgid "invoice number"
+msgstr ""
+
+#: finance/models.py:72
+msgid "payment amount"
+msgstr ""
+
+#: finance/models.py:73
+msgid "gateway"
+msgstr "درگاه"
+
+#: finance/models.py:74
+msgid "is paid status"
+msgstr ""
+
+#: finance/models.py:75
+msgid "logs"
+msgstr "لاگ ها"
+
+#: finance/models.py:76
+msgid "User"
+msgstr "کاربر"
+
+#: finance/models.py:77
+msgid "authority"
+msgstr ""
+
+#: finance/models.py:80
+msgid "Payment"
+msgstr "پرداخت"
+
+#: finance/models.py:81
+msgid "Payments"
+msgstr "پرداخت ها"
+
+#: finance/models.py:113
+msgid "Instant payment"
+msgstr ""
+
+#: package/apps.py:8 package/models.py:16
+msgid "Package"
+msgstr "بسته"
+
+#: package/apps.py:9 package/models.py:17
+msgid "Packages"
+msgstr "بسته ها"
+
+#: package/models.py:6
+msgid "title"
+msgstr "عنوان"
+
+#: package/models.py:7
+msgid "price"
+msgstr "قیمت"
+
+#: templates/cover/index.html:61
+msgid "Home"
+msgstr "خانه"
+
+#: templates/cover/index.html:62
+msgid "Features"
+msgstr "امکانات"
+
+#: templates/cover/index.html:63
+msgid "Contact"
+msgstr "تماس با ما"
+
+#: templates/cover/index.html:69
+msgid "Cover your page"
+msgstr "!کاور پیج شما"
+
+#: templates/cover/index.html:71
+msgid ""
+"Cover is a one-page template for building simple and beautiful home pages. "
+"Download, edit the text, and add your own fullscreen background photo to "
+"make it your own."
+msgstr ""
+"قالب کاور یک قالب تک‌صفحه‌ای است برای ساخت صفحات خانگی ساده و زیبا.آن را "
+"دانلود کنید، متن را ویرایش کنید، و عکس پس‌زمینه تمام‌صفحه‌ی خود را اضافه "
+"کنید تا آن را به سبک خود درآورید."
+
+#: templates/cover/index.html:74
+msgid "Learn more"
+msgstr "ادامه مطلب"
+
+#: templates/cover/index.html:91
+msgid "Go"
+msgstr "اعمال"

@@ -11,7 +11,8 @@ def show_cars_list(request):
     context = {
         'cars': cars
     }
-    return render(request, 'car_list/show_all_cars.html', context)
+    # return render(request, 'car_list/show_all_cars.html', context)
+    return render(request, 'cover/index.html', context)
 
 
 def show_car(request, car_id):
