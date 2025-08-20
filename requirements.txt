@@ -2,6 +2,7 @@ asgiref==3.8.1
 certifi==2025.8.3
 charset-normalizer==3.4.3
 Django==5.2.5
+django-modeltranslation==0.19.16
 django-rosetta==0.10.2
 idna==3.10
 pillow==11.3.0
